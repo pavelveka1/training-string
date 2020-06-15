@@ -2,8 +2,14 @@ package by.epamtr.java.string;
 
 import java.math.BigInteger;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class OperationWithString {
+	
+	public static void main(String[] args) {
+		System.out.println(AddingVeryLongNumbers("111111111143u343434342", "222222222353534343434"));
+	}
 
 	public static String[] getArrayWords(String line) {
 		if (line == null)
@@ -33,10 +39,18 @@ public class OperationWithString {
 	}
 
 	
-	public static BigInteger AddingVeryLongNumbers(BigInteger a, BigInteger b) {
-		if (a == null || b == null)
+	public static String AddingVeryLongNumbers(String firstNumber, String secondNumber) {
+		BigInteger result;
+		if (firstNumber == null || secondNumber == null)
 			throw new NullPointerException("passed argument is null");
-		return a.add(b);
+		
+		if(firstNumber.matches("(\\-)?(\\d)*")==false||secondNumber.matches("(\\-)?(\\d)*")==false)
+			throw new RuntimeException("passed argument can't cotvert to number");
+		
+		BigInteger firstStr=new BigInteger(firstNumber);
+		BigInteger secondStr=new BigInteger(secondNumber);
+		result=firstStr.add(secondStr);
+		return result.toString();
 	}
 
 	
