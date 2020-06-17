@@ -8,7 +8,7 @@ public class OperationWithString {
 
 	public static String[] getArrayWords(String line) {
 		if (line == null) {
-			throw new InvalidPassedArgumentException("passed argument is null");
+			throw new ValidationException("passed argument is null");
 		}
 		return line.split("\\s*(\\s|,|!|\\.)\\s*");
 	}
@@ -16,7 +16,7 @@ public class OperationWithString {
 	
 	public static String deleteExtraSpaces(String line) {
 		if (line == null) {
-			throw new InvalidPassedArgumentException("passed argument is null");
+			throw new ValidationException("passed argument is null");
 		}
 		return line.replaceAll("\\s{2,}", " ");
 	}
@@ -24,7 +24,7 @@ public class OperationWithString {
 	
 	public static String deleteWordsCertainLength(String line, int wordLength) {
 		if (line == null) {
-			throw new InvalidPassedArgumentException("passed argument is null");
+			throw new ValidationException("passed argument is null");
 		}
 		StringBuilder result = new StringBuilder();
 		String[] arrayStrings = line.split("\\s*(\\s|,|!|\\.)\\s*");
@@ -40,10 +40,10 @@ public class OperationWithString {
 	public static String AddingVeryLongNumbers(String first, String second) {
 		BigInteger result;
 		if (first == null || second == null) {
-			throw new InvalidPassedArgumentException("passed argument is null");
+			throw new ValidationException("passed argument is null");
 		}
 		if(first.matches("(\\-)?(\\d)*")==false||second.matches("(\\-)?(\\d)*")==false) {
-			throw new InvalidPassedArgumentException("passed argument can't cotvert to number");
+			throw new ValidationException("passed argument can't cotvert to number");
 		}
 		
 		BigInteger firstNumber=new BigInteger(first);
@@ -55,7 +55,7 @@ public class OperationWithString {
 	
 	public static String replaceSubstring(String line, String oldSubstring, String newSubstring) {
 		if (line == null || oldSubstring == null || newSubstring == null) {
-			throw new InvalidPassedArgumentException("passed argument is null");
+			throw new ValidationException("passed argument is null");
 		}
 		if (line.contains(oldSubstring))
 			return line.replace(oldSubstring, newSubstring);
@@ -65,7 +65,7 @@ public class OperationWithString {
 	
 	public static boolean isPalindrom(String line) {
 		if (line == null) {
-			throw new InvalidPassedArgumentException("passed argument is null");
+			throw new ValidationException("passed argument is null");
 		}
 		StringBuilder reverseLine = new StringBuilder(line).reverse();
 		for (int i = 0; i < reverseLine.length(); i++) {
@@ -81,10 +81,10 @@ public class OperationWithString {
 	
 	public static String addWhitespace(String line, int index, int numberWhitespace) {
 		if (line == null) {
-			throw new InvalidPassedArgumentException("passed argument is null");
+			throw new ValidationException("passed argument is null");
 		}
 		if (index < 0 || index >= line.length() || numberWhitespace < 0) {
-			throw new InvalidPassedArgumentException("index out of length string or number whitespace is negative");
+			throw new ValidationException("index out of length string or number whitespace is negative");
 		}
 		StringBuilder result = new StringBuilder(line);
 		result.insert(index, new char[numberWhitespace]);
@@ -94,7 +94,7 @@ public class OperationWithString {
 	
 	public static String deleteLastWord(String line) {
 		if (line == null) {
-			throw new InvalidPassedArgumentException("passed argument is null");
+			throw new ValidationException("passed argument is null");
 		}
 		String[] arrayStrings = line.split("\\s*(\\s|,|!|\\.)\\s*");
 		StringBuilder result = new StringBuilder();
@@ -111,7 +111,7 @@ public class OperationWithString {
 	
 	public static String swapWords(String line) {
 		if (line == null) {
-			throw new InvalidPassedArgumentException("passed argument is null");
+			throw new ValidationException("passed argument is null");
 		}
 		String[] arrayStrings = line.split("\\s*(\\s|,|!|\\.)\\s*");
 		StringBuilder result = new StringBuilder();
@@ -157,7 +157,7 @@ public class OperationWithString {
 	
 	public static String replaceInLongestWordAwithB(String line) {
 		if (line == null) {
-			throw new InvalidPassedArgumentException("passed argument is null");
+			throw new ValidationException("passed argument is null");
 		}
 		String[] arrayStrings = line.split("\\s*(\\s|,|!|\\.)\\s*");
 		int indexLongestWord = 0;
@@ -174,7 +174,7 @@ public class OperationWithString {
 	
 	public static String replaceWhitespace(String line) {
 		if (line == null) {
-			throw new InvalidPassedArgumentException("passed argument is null");
+			throw new ValidationException("passed argument is null");
 		}
 		return line.replaceAll("\\s+", "*");
 	}
@@ -182,7 +182,7 @@ public class OperationWithString {
 	
 	public static void printWordsInReverseOrder(String line) {
 		if (line == null) {
-			throw new InvalidPassedArgumentException("passed argument is null");
+			throw new ValidationException("passed argument is null");
 		}
 		String[] arrayStrings = line.split("\\s*(\\s|,|!|\\.)\\s*");
 		for (int i = arrayStrings.length - 1; i >= 0; i--) {
@@ -193,7 +193,7 @@ public class OperationWithString {
 	
 	public static int numberOccurrenceSubstringInString(String line, String substring) {
 		if (line == null || substring == null) {
-			throw new InvalidPassedArgumentException("passed argument is null");
+			throw new ValidationException("passed argument is null");
 		}
 		int count = 0;
 		if (line.length() < substring.length()) {
@@ -218,10 +218,10 @@ public class OperationWithString {
 	
 	public static String copySubstring(String line, int fromIndex, int toIndex) {
 		if (line == null) {
-			throw new InvalidPassedArgumentException("passed argument is null");
+			throw new ValidationException("passed argument is null");
 		}
 		if (fromIndex < 0 || toIndex >= line.length() || fromIndex > toIndex) {
-			throw new InvalidPassedArgumentException("index out of length string");
+			throw new ValidationException("index out of length string");
 		}
 		StringBuilder result = new StringBuilder();
 		result.append(line, fromIndex, toIndex);
@@ -231,10 +231,10 @@ public class OperationWithString {
 	
 	public static String deleteSubstring(String line, int fromIndex, int toIndex) {
 		if (line == null) {
-			throw new InvalidPassedArgumentException("passed argument is null");
+			throw new ValidationException("passed argument is null");
 		}
 		if (fromIndex < 0 || toIndex >= line.length() || fromIndex > toIndex) {
-			throw new InvalidPassedArgumentException("index out of length string");
+			throw new ValidationException("index out of length string");
 		}
 		StringBuilder result = new StringBuilder(line);
 		result.delete(fromIndex, toIndex);
@@ -244,10 +244,10 @@ public class OperationWithString {
 	
 	public static String insertSubstring(String original, String substring, int position) {
 		if (original == null || substring == null) {
-			throw new InvalidPassedArgumentException("passed argument is null");
+			throw new ValidationException("passed argument is null");
 		}
 		if (position < 0 || position >= original.length()) {
-			throw new InvalidPassedArgumentException("index out of length original string");
+			throw new ValidationException("index out of length original string");
 		}
 		StringBuilder result = new StringBuilder(original);
 		result.insert(position, substring);
@@ -258,7 +258,7 @@ public class OperationWithString {
 	
 	public static String getReversedString(String line) {
 		if (line == null) {
-			throw new InvalidPassedArgumentException("passed argument is null");
+			throw new ValidationException("passed argument is null");
 		}
 		StringBuilder result = new StringBuilder(line);
 		return result.reverse().toString();
@@ -280,7 +280,7 @@ public class OperationWithString {
 	
 	public static String deleteDuplicateSymbols(String line) {
 		if (line == null) {
-			throw new InvalidPassedArgumentException("passed argument is null");
+			throw new ValidationException("passed argument is null");
 		}
 		StringBuilder result = new StringBuilder();
 		for (int i = 0; i < line.length(); i++) {
@@ -294,7 +294,7 @@ public class OperationWithString {
 	
 	public static void separateEvenAndOddCharactersIntoDifferentLines(String line) {
 		if (line == null) {
-			throw new InvalidPassedArgumentException("passed argument is null");
+			throw new ValidationException("passed argument is null");
 		}
 		StringBuilder evenCharacters = new StringBuilder();
 		StringBuilder oddCharacters = new StringBuilder();
@@ -313,7 +313,7 @@ public class OperationWithString {
 	
 	public static void printPercentageRatioUpperAndLowerCase(String line) {
 		if (line == null) {
-			throw new InvalidPassedArgumentException("passed argument is null");
+			throw new ValidationException("passed argument is null");
 		}
 		int countUpperCase = 0;
 		int countLowerCase = 0;
