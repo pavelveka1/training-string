@@ -6,7 +6,7 @@ import java.util.Random;
 public class OperationWithString {
 	
 
-	public static String[] getArrayWords(String line) {
+	public static String[] doArrayWords(String line) {
 		if (line == null) {
 			throw new ValidationException("passed argument is null");
 		}
@@ -37,7 +37,7 @@ public class OperationWithString {
 	}
 
 	
-	public static String AddingVeryLongNumbers(String first, String second) {
+	public static String addingVeryLongNumbers(String first, String second) {
 		BigInteger result;
 		if (first == null || second == null) {
 			throw new ValidationException("passed argument is null");
@@ -131,7 +131,7 @@ public class OperationWithString {
 	}
 
 	
-	public static int getNumberWords(String line) {
+	public static int doNumberWords(String line) {
 		if (line == null)
 			return -1;
 		String[] arrayStrings = line.split("\\s*(\\s|,|!|\\.)\\s*");
@@ -256,7 +256,7 @@ public class OperationWithString {
 	}
 
 	
-	public static String getReversedString(String line) {
+	public static String doReversedString(String line) {
 		if (line == null) {
 			throw new ValidationException("passed argument is null");
 		}
